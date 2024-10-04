@@ -1,5 +1,3 @@
-import AuroraBackgroundDemo from "@/components/example/aurora-background-demo";
-
 export default function Home() {
-  return <AuroraBackgroundDemo />;
+  return <div className="cursor-pointer">HI</div>;
 }

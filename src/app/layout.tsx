@@ -3,7 +3,8 @@ import "./globals.css";
 import { AuroraBackground } from "@/components/ui/background/aurora-background";
 import { ThemeSwitcher } from "@/components/layouts/ThemeToggler/ThemeSwitcher";
 import { ThemeProvider } from "next-themes";
-import Navbar from "@/components/layouts/navbar/NavMenu";
+// import Navbar from "@/components/layouts/navbar/NavMenu";
+import FloatingDockInvertedComponent from "@/components/layouts/dock/FloatingDockInverted";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,7 +22,10 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <AuroraBackground>
             <div className="z-10">
-              <Navbar className="top-2" />
+              {/* <Navbar className="top-2" /> */}
+              <div className="fixed top-5 left-5">
+                <FloatingDockInvertedComponent />
+              </div>
               <div className="absolute top-2 right-2">
                 <ThemeSwitcher />
               </div>

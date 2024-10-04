@@ -14,28 +14,22 @@ export default function FloatingDockInvertedComponent() {
   const links = [
     {
       title: "Home",
-      icon: (
-        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
+      icon: <IconHome className="size-full" />,
+      href: "/",
     },
 
     {
-      title: "Products",
-      icon: (
-        <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
+      title: "Floating Dock",
+      icon: <IconTerminal2 className="size-full" />,
+      href: "/floating-dock",
     },
     {
-      title: "Components",
-      icon: (
-        <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
+      title: "Shop",
+      icon: <IconNewSection className="size-full" />,
+      href: "/shop",
     },
     {
-      title: "Aceternity UI",
+      title: "Grid Demo",
       icon: (
         <Image
           src="https://assets.aceternity.com/logo-dark.png"
@@ -46,28 +40,22 @@ export default function FloatingDockInvertedComponent() {
           loading="lazy"
         />
       ),
-      href: "#",
+      href: "/grid-demo",
     },
     {
       title: "Changelog",
-      icon: (
-        <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
+      icon: <IconExchange className="size-full" />,
       href: "#",
     },
 
     {
       title: "Twitter",
-      icon: (
-        <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
+      icon: <IconBrandX className="size-full" />,
       href: "#",
     },
     {
       title: "GitHub",
-      icon: (
-        <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
+      icon: <IconBrandGithub className="size-full" />,
       href: "#",
     },
   ];

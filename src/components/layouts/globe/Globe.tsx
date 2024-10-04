@@ -3,7 +3,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 
 const World = dynamic(
-  () => import("@/components/ui/globe").then((m) => m.World),
+  () => import("@/components/ui/3dmodels/globe").then((m) => m.World),
   {
     ssr: false,
   }

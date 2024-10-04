@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { AuroraBackground } from "@/components/ui/background/aurora-background";
+import { ThemeSwitcher } from "@/components/layouts/ThemeToggler/ThemeSwitcher";
+import { ThemeProvider } from "next-themes";
+// import Navbar from "@/components/layouts/navbar/NavMenu";
+import FloatingDockInvertedComponent from "@/components/layouts/dock/FloatingDockInverted";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,15 +13,26 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <AuroraBackground>
+            <div className="z-10">
+              {/* <Navbar className="top-2" /> */}
+              <div className="fixed top-5 left-5">
+                <FloatingDockInvertedComponent />
+              </div>
+              <div className="absolute top-2 right-2">
+                <ThemeSwitcher />
+              </div>
+              {children}
+            </div>
+          </AuroraBackground>
+        </ThemeProvider>
       </body>
     </html>
   );

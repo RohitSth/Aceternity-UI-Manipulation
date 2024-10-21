@@ -43,15 +43,15 @@ export default function FloatingDockInvertedComponent() {
       href: "/grid-demo",
     },
     {
-      title: "Changelog",
+      title: "Expandable Card",
       icon: <IconExchange className="size-full" />,
-      href: "#",
+      href: "/expandable-card",
     },
 
     {
-      title: "Twitter",
+      title: "Expandable Card 2",
       icon: <IconBrandX className="size-full" />,
-      href: "#",
+      href: "/expandable-card-2",
     },
     {
       title: "Test Console",

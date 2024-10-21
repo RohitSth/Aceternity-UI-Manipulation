@@ -16,6 +16,7 @@ import {
   useTransform,
 } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
 
 export const FloatingDockInverted = ({
@@ -69,21 +70,37 @@ function IconContainer({
   href: string;
 }) {
   let ref = useRef<HTMLDivElement>(null);
+  const pathname = usePathname(); // Get the current path
 
   let distance = useTransform(mouseX, (val) => {
     let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-
     return val - bounds.x - bounds.width / 2;
   });
 
-  let widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-  let heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  // Highlight the icon if the href matches the current path
+  const isActive = href === pathname;
 
-  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
+  // If active, the size increases slightly
+  let widthTransform = useTransform(
+    distance,
+    [-150, 0, 150],
+    isActive ? [50, 90, 50] : [40, 80, 40] // Larger when active
+  );
+  let heightTransform = useTransform(
+    distance,
+    [-150, 0, 150],
+    isActive ? [50, 90, 50] : [40, 80, 40] // Larger when active
+  );
+
+  let widthTransformIcon = useTransform(
+    distance,
+    [-150, 0, 150],
+    isActive ? [25, 45, 25] : [20, 40, 20] // Icon size larger when active
+  );
   let heightTransformIcon = useTransform(
     distance,
     [-150, 0, 150],
-    [20, 40, 20]
+    isActive ? [25, 45, 25] : [20, 40, 20] // Icon size larger when active
   );
 
   let width = useSpring(widthTransform, {
@@ -117,7 +134,12 @@ function IconContainer({
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="aspect-square rounded-xl bg-gray-200 dark:bg-neutral-800 flex items-center justify-center relative"
+        className={cn(
+          "aspect-square rounded-xl flex items-center justify-center relative",
+          isActive
+            ? "bg-blue-500 dark:bg-blue-700" // Apply highlight style when active
+            : "bg-gray-200 dark:bg-neutral-800" // Default background
+        )}
       >
         <motion.div
           style={{ width: widthIcon, height: heightIcon }}

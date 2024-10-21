@@ -21,10 +21,12 @@ export default function RootLayout({
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <AuroraBackground>
-            <div className="z-10">
+            <div className="z-10 w-full px-16">
               {/* <Navbar className="top-2" /> */}
-              <div className="fixed top-5 left-5">
-                <FloatingDockInvertedComponent />
+              <div className="w-full justify-start">
+                <div className="-ml-4">
+                  <FloatingDockInvertedComponent />
+                </div>
               </div>
               <div className="absolute top-2 right-2">
                 <ThemeSwitcher />

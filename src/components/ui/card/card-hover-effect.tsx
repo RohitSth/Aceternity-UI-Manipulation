@@ -28,13 +28,31 @@ export const HoverEffect = ({
       )}
     >
       {items.map((item, idx) => (
-        <Link
-          href={item?.link}
+        <div
           key={item?.link}
           className="relative group block p-2"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
+          <Link
+            href={item?.link}
+            className="absolute top-4 left-4 bg-gray-900/80 px-2 py-1 z-30 rounded text-xs text-white flex items-center gap-1"
+          >
+            <svg
+              className="w-3 h-3"
+              fill="none"
+              strokeWidth="2"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+              />
+            </svg>
+            Your News
+          </Link>
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
@@ -65,7 +83,7 @@ export const HoverEffect = ({
               />
             </div>
           </Lens>
-        </Link>
+        </div>
       ))}
     </div>
   );

@@ -3,7 +3,6 @@ import "./globals.css";
 import { AuroraBackground } from "@/components/ui/background/aurora-background";
 import { ThemeSwitcher } from "@/components/layouts/ThemeToggler/ThemeSwitcher";
 import { ThemeProvider } from "next-themes";
-// import Navbar from "@/components/layouts/navbar/NavMenu";
 import FloatingDockInvertedComponent from "@/components/layouts/dock/FloatingDockInverted";
 
 export const metadata: Metadata = {
@@ -17,19 +16,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className="h-full">
+      <body className="h-full">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <AuroraBackground>
-            <div className="z-10">
-              {/* <Navbar className="top-2" /> */}
-              <div className="fixed top-5 left-5">
-                <FloatingDockInvertedComponent />
-              </div>
-              <div className="absolute top-2 right-2">
+            <div className="min-h-screen z-10 w-full flex flex-col">
+              {/* Theme switcher */}
+              <div className="absolute  top-2 right-2 z-50">
                 <ThemeSwitcher />
               </div>
-              {children}
+
+              {/* Dock section */}
+              <div className="w-full">
+                <div className="p-4">
+                  <FloatingDockInvertedComponent />
+                </div>
+              </div>
+
+              {/* Content section */}
+              <div className="flex-1 px-8 py-4 overflow-auto">{children}</div>
             </div>
           </AuroraBackground>
         </ThemeProvider>

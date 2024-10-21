@@ -54,14 +54,10 @@ export default function FloatingDockInvertedComponent() {
       href: "#",
     },
     {
-      title: "GitHub",
+      title: "Test Console",
       icon: <IconBrandGithub className="size-full" />,
-      href: "#",
+      href: "/console",
     },
   ];
-  return (
-    <div className="flex items-center justify-center w-full">
-      <FloatingDockInverted items={links} />
-    </div>
-  );
+  return <FloatingDockInverted items={links} />;
 }

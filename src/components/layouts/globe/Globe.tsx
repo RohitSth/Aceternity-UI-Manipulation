@@ -397,7 +397,7 @@ export function Globe() {
   ];
 
   return (
-    <div className="flex flex-row items-center justify-center py-20 size-[660px] relative">
+    <div className="flex flex-row items-center justify-center size-[560px] relative">
       <div className="flex justify-center items-center size-[100%] z-10">
         <World data={sampleArcs} globeConfig={globeConfig} />
       </div>

@@ -4,7 +4,7 @@ import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hook/useOutsideClick";
 
-export default function ExpandableCardDemo() {
+export default function ExpandableCard2Demo() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
     null
   );

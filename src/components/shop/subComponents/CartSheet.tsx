@@ -10,7 +10,7 @@ import {
   SheetDescription,
   SheetFooter,
 } from "@/components/ui/sheet";
-import { ScrollArea } from "@/components/ui/scrollarea";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { CartItem } from "./types";
 
 interface CartSheetProps {

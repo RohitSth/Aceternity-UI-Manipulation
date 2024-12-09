@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button/button";
+import { Button } from "@/components/ui/button";
 import {
   ChevronLeft,
   ChevronRight,
@@ -17,9 +17,8 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip/tooltip";
-import { Avatar } from "@/components/comp/Avatar";
-import { Slider } from "@/components/ui/slider/slider";
+} from "@/components/ui/tooltip";
+import { Slider } from "@/components/ui/slider";
 
 interface ProductDetailProps {
   product: Product | null;
@@ -135,20 +134,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({
       <h2 className="text-2xl font-bold mb-4">{product.name}</h2>
 
       {product.type === "emote" ? (
-        <div className="relative h-[256px] w-full">
-          <Avatar
-            modelSrc="https://models.readyplayer.me/66fbd22e36a151e549ea8397.glb"
-            animationSrc={product.animation}
-            style={{ background: "rgb(0,0,6)" }}
-            fov={35}
-            cameraTarget={0}
-            cameraInitialDistance={20}
-            effects={{
-              ambientOcclusion: true,
-            }}
-            followModel={true}
-          />
-        </div>
+        <div className="relative h-[256px] w-full">Avatar</div>
       ) : (
         <div ref={sliderRef} className="relative h-64 mb-4">
           <Image

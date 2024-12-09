@@ -7,6 +7,7 @@ import {
   IconHome,
   IconNewSection,
   IconTerminal2,
+  IconTimeline,
 } from "@tabler/icons-react";
 import Image from "next/image";
 
@@ -57,6 +58,11 @@ export default function FloatingDockInvertedComponent() {
       title: "Test Console",
       icon: <IconBrandGithub className="size-full" />,
       href: "/console",
+    },
+    {
+      title: "Timeline",
+      icon: <IconTimeline className="size-full" />,
+      href: "/timeline",
     },
   ];
   return <FloatingDockInverted items={links} />;

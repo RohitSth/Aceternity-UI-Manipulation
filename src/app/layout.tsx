@@ -4,6 +4,7 @@ import { AuroraBackground } from "@/components/ui/background/aurora-background";
 import { ThemeSwitcher } from "@/components/layouts/ThemeToggler/ThemeSwitcher";
 import { ThemeProvider } from "next-themes";
 import FloatingDockInvertedComponent from "@/components/layouts/dock/FloatingDockInverted";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,22 +21,24 @@ export default function RootLayout({
       <body className="h-full">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <AuroraBackground>
-            <div className="min-h-screen z-10 w-full flex flex-col">
-              {/* Theme switcher */}
-              <div className="absolute  top-2 right-2 z-50">
-                <ThemeSwitcher />
-              </div>
-
-              {/* Dock section */}
-              <div className="w-full">
-                <div className="p-4">
-                  <FloatingDockInvertedComponent />
+            <TooltipProvider>
+              <div className="min-h-screen z-10 w-full flex flex-col">
+                {/* Theme switcher */}
+                <div className="absolute  top-2 right-2 z-50">
+                  <ThemeSwitcher />
                 </div>
-              </div>
 
-              {/* Content section */}
-              <div className="flex-1 px-8 py-4 overflow-auto">{children}</div>
-            </div>
+                {/* Dock section */}
+                <div className="w-full">
+                  <div className="p-4">
+                    <FloatingDockInvertedComponent />
+                  </div>
+                </div>
+
+                {/* Content section */}
+                <div className="flex-1 px-8 py-4 overflow-auto">{children}</div>
+              </div>
+            </TooltipProvider>
           </AuroraBackground>
         </ThemeProvider>
       </body>

@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",
-    "@mobiscroll/cli": "^1.15.0",
-    "@mobiscroll/react": "npm:@mobiscroll/react-next-trial@^5.32.1",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-navigation-menu": "^1.2.1",

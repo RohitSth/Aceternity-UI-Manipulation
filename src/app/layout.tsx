@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { AuroraBackground } from "@/components/ui/background/aurora-background";
-import { ThemeSwitcher } from "@/components/layouts/ThemeToggler/ThemeSwitcher";
-import { ThemeProvider } from "next-themes";
 import FloatingDockInvertedComponent from "@/components/layouts/dock/FloatingDockInverted";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { ThemeChanger } from "@/components/theme/theme-changer";
+import { ThemeProvider } from "@/context/theme/theme-context";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,13 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className="h-full">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider>
           <AuroraBackground>
             <TooltipProvider>
               <div className="min-h-screen z-10 w-full flex flex-col">
-                {/* Theme switcher */}
-                <div className="absolute  top-2 right-2 z-50">
-                  <ThemeSwitcher />
+                <div className="absolute top-4 right-4 flex gap-2 items-center z-40">
+                  <ThemeChanger />
                 </div>
 
                 {/* Dock section */}

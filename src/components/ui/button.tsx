@@ -25,6 +25,8 @@ const buttonVariants = cva(
         transparent_rounded:
           "bg-transparent border dark:border-white/20 border-black/20 hover:border-yellow-500/80 backdrop-blur-lg hover:bg-sky-500/20 rounded-full",
         dim: "bg-transparent text-black dark:text-white hover:text-yellow-600",
+        rounded:
+          "rounded-full border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
       },
       size: {
         default: "h-9 px-4 py-2",
